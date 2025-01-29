@@ -67,4 +67,11 @@ public class Product {
     @JsonBackReference
     @JoinColumn(name = "subcategory_id")
     private SubCategory subCategory;
+
+    public Long getSubCategoryId() {
+        return subCategory != null ? subCategory.getId() : null;
+    }
+
+
+
 }

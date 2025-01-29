@@ -72,4 +72,9 @@ public class SubCategory {
     @OneToMany(mappedBy = "subCategory", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Product> products = new ArrayList<>();
+
+    // Add this method to expose categoryId in JSON response
+    public Long getCategoryId() {
+        return category != null ? category.getId() : null;
+    }
 }
