@@ -34,6 +34,14 @@ public class JWTAuthFilter extends OncePerRequestFilter {
         final String jwtToken;
         final String userEmail;
 
+
+        // List of public endpoints that should NOT be filtered for authentication
+        String requestURI = request.getRequestURI();
+        if (requestURI.startsWith("/api/") || requestURI.startsWith("/api/contact")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         if (authHeader == null || authHeader.isBlank()) {
             filterChain.doFilter(request, response);
             return;
