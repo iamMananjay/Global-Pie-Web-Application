@@ -18,11 +18,11 @@ public class GlobalpieApplication {
 		CommandLineRunner initDatabase(UsersRepo userRepository, PasswordEncoder passwordEncoder) {
 		return args -> {
 			// Check if the user already exists
-			if (!userRepository.findByEmail("admin@gmail.com").isPresent()) {
+			if (!userRepository.findByEmail("manu@gmail.com").isPresent()) {
 				Users user = new Users();
 				user.setName("Admin User");
-				user.setEmail("admin@gmail.com");
-				user.setPassword(passwordEncoder.encode("admin123"));
+				user.setEmail("manu@gmail.com");
+				user.setPassword(passwordEncoder.encode("Wildeverm@nu2055"));
 				user.setContact("9860252886");
 				user.setStatus("active");
 				user.setGender("Male");
